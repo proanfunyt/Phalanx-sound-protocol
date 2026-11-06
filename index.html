@@ -977,7 +977,7 @@ var LINEUP = [
   { img: 'jack',     name: 'Jack Black',      time: '21:45', bio: 'The headline set under Nemesis.' }
 ];                     // most tickets in one order
 var EMAILJS = { service: 'service_zszyo2o', template: 'template_bw5ai59', key: 'RchtJSlTxTS3kL_h2' };   // email confirmations
-var ADMIN_EMAIL    = 'proanfunyt@gmail.com';   // the owner: can add and remove staff on the scanner page
+var ADMIN_EMAILS = ['proanfunyt@gmail.com', 'friend@gmail.com'];   // the owner: can add and remove staff on the scanner page
 var STAFF_EMAILS  = ['proanfunyt@gmail.com'];    // DEMO MODE only. With Firebase, add staff on the #scan page
 
 /* Paste your Firebase web-app config here (see the setup guide).
@@ -1106,7 +1106,7 @@ function sha(text) {
   });
 }
 
-function isAdmin(u) { return !!u && (u.email || '').toLowerCase() === ADMIN_EMAIL.toLowerCase(); }
+function isAdmin(u) { return !!u && ADMIN_EMAILS.indexOf((u.email || '').toLowerCase()) >= 0; }
 
 function seatTakenError() { var e = Error('A seat was just taken.'); e.seatTaken = true; return e; }
 
